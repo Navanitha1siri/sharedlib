@@ -3,7 +3,7 @@ def newGit(repo)
 {
   git "https://github.com/intelliqittrainings/{repo}.git"
 }
-def new()
+def newmaven()
 {
   sh 'mvn package' 
 }
