@@ -7,8 +7,8 @@ def newMaven()
 {
   sh 'mvn package'
 }
-def newDeploy()
+def newDeploy(jobname,ipaddress,context)
 {
- sh "deploy adapters: [tomcat9(credentialsId: '9a815754-0b6e-482f-a9b3-f118548f15c9', path: '', url: 'http://172.31.40.153:8080')], contextPath: 'textapp', war: '**/*.war'"
+  sh "scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war  ubuntu@${ipaddress}:/var/lib/webapp/tomcat9/${context}.war"
 }
 
