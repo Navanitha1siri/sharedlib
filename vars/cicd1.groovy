@@ -6,9 +6,9 @@ def newMaven()
 {
   sh 'mvn package'
 }
-def newDeploy(ipaddress,context)
+def newDeploy()
 {
-    deploy adapters: [tomcat9(credentialsId: 'f6c6cf4b-a5ee-4927-8583-0d6f62a9589b', path: '', url: 'http://${ipaddress}:8080')], contextPath: '${context}', war: '**/*.war'
+    deploy adapters: [tomcat9(credentialsId: 'f6c6cf4b-a5ee-4927-8583-0d6f62a9589b', path: '', url: 'http://172.31.16.164:8080')], contextPath: 'testapp', war: '**/*.war'
 }
 def executeSelenium(jobname)
 {
