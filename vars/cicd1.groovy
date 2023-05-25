@@ -8,7 +8,7 @@ def newMaven()
 }
 def newDeploy(ipaddress,context)
 {
-    deploy adapters: [tomcat9(credentialsId: 'f6c6cf4b-a5ee-4927-8583-0d6f62a9589b', path: '', url: 'http://${ipaddress}:8080')], contextPath: '${testapp}', war: '**/*.war'
+    deploy adapters: [tomcat9(credentialsId: 'f6c6cf4b-a5ee-4927-8583-0d6f62a9589b', path: '', url: 'http://${ipaddress}:8080')], contextPath: '${context}', war: '**/*.war'
 }
 def executeSelenium(jobname)
 {
