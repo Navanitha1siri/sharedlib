@@ -17,7 +17,7 @@ def executeSelenium(jobname)
 }
 def newDeleviry()
 {
-  
+  deploy adapters: [tomcat9(credentialsId: 'f83619d2-4f29-4c28-acb3-1d118422e053', path: '', url: 'http://172.31.25.234:8080')], contextPath: 'prodapp', war: '**/*.war'
 }
 
 
