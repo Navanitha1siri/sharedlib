@@ -7,13 +7,17 @@ def newMaven()
 {
   sh 'mvn package'
 }
-def newDeploy(jobname,ipaddress,context)
+def newDeploy()
 {
-  sh "scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war  ubuntu@${ipaddress}:/var/lib/tomcat9/webapps/${context}.war"
+  deploy adapters: [tomcat9(credentialsId: 'f83619d2-4f29-4c28-acb3-1d118422e053', path: '', url: 'http://172.31.21.34:8080')], contextPath: 'testapp', war: '**/*.war'
 }
 def executeSelenium(jobname)
 {
   sh "java -jar /var/lib/jenkins/workspace/${jobname}/testing.jar"
+}
+def newDeleviry()
+{
+  
 }
 
 
